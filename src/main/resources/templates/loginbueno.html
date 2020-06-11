@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8"/>
+
+    <title>Inicio Perneria</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+
+    <!-- Custom styles for this template -->
+    <link href="#" th:href="@{/css/login.css}" rel="stylesheet" />
+    <link href="#" th:href="@{/css/style.css}" rel="stylesheet" />
+    
+    <!-- Links login nuevo -->
+    
+    <!-- <link href="#" th:href="@{/plugins/fontawesome-free/css/all.min.css}" rel="stylesheet"/> -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- <link href="#" th:href="@{/plugins/icheck-bootstrap/icheck-bootstrap.min.css}" rel="stylesheet" /> -->
+    <!-- <link href="#" th:href="@{/dist/css/adminlte.min.css}" rel="stylesheet" /> -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet" />
+    
+    
+    <!--        final links -->
+
+  </head>
+
+  <body>
+
+    <div class="card">
+
+      <form class="form-signin"  th:action="@{/logincheck}"  method="post">
+      <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+        <h2 class="form-signin-heading">Iniciar Sesion</h2>
+        <label for="inputEmail" class="sr-only">Usuario</label>
+        <input type="text"  class="form-control" placeholder="Usuario" name="username" id="username"/>
+        <label for="inputPassword" class="sr-only">Clave</label>
+        <input type="password"  class="form-control" placeholder="Clave" name="password" id="password"/>
+        <div th:if="${error !=null}" class="alert alert-danger" role="alert">Usuario o clave invalida</div>
+        <div th:if="${logout !=null}" class="alert alert-info" role="alert">Cierre de sesion correcto!</div>
+        
+        <button class="btn btn-lg btn-primary btn-block" type="submit">
+        	<span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Ingresar
+        </button>
+      </form>
+
+    </div> <!-- /container -->
+
+</body>
+</html>
